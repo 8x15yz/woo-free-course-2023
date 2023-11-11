@@ -5,9 +5,13 @@ import christmas.model.Errors;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Validator {
     private static final String IS_ONLY_NUMBER = "[0-9]+";
+    private static List<String> duplicate = new ArrayList<>();
+    int total = 0;
+    Boolean isOnlyBeverage = true;
 
     public int isDayValid(String day) {
         if (isInteger(day) && isRangeValid(day))
@@ -21,36 +25,50 @@ public class Validator {
         int parsed = Integer.parseInt(number);
         return 1 <= parsed && parsed <= 31;
     }
-
-    public HashMap isMenuValid(String input, List<String> catalog) {
-        HashMap<String, Integer> orders = new HashMap<>();
-        for (String menu : input.split(",")) {
-            String[] cleand = isFormatValid(menu, catalog);
-            orders.put(cleand[0], Integer.valueOf(cleand[1]));
-        }
-        System.out.println(orders);
-        return orders;
+    public String[] isFormatValid(String[] format) {
+        if (format.length != 2)
+            throw new IllegalArgumentException(Errors.MENU.getMessage());
+        return format;
     }
-    public String[] isFormatValid(String menu, List<String> catalog) {
-        String[] format = String.valueOf(menu).split("-");
+    public String[] isMenuValid(String[] format, List<String> catalog) {
+        isNameValid(format[0]);
         if(containMenu(format[0], catalog) && isInteger(format[1])) {
+            duplicate.add(format[0]);
+            total += Integer.parseInt(format[1]);
+            twenty();
             return format;
         }
+        System.out.println(isOnlyBeverage+"???????");
         throw new IllegalArgumentException(Errors.MENU.getMessage());
     }
-
+    public void isNameValid(String name) {
+        if (duplicate.contains(name))
+            throw new IllegalArgumentException(Errors.MENU.getMessage());
+    }
     public Boolean containMenu(String name, List<String> catalog) {
         return catalog.contains(name);
     }
-    public void isOrderValid(HashMap catalog, List order) {
-        int total = 0;
-        List<String> names = new ArrayList<>();
-        List<String> types = new ArrayList<>();
-        duplicate();
-        twenty();
+
+    public void isOrderValid(HashMap catalog, List<String> order) {
+        catalog.forEach((key, value) -> {
+            for(String menu : order) {
+                match(key, value, menu);
+            }
+        });
         beverage();
     }
-    public void duplicate(){}
-    public void twenty(){}
-    public void beverage(){}
+    public void match(Object key, Object value, String menu) {
+        if (key.equals(menu) && !value.equals("beverage")) {
+            isOnlyBeverage = false;
+        }
+    }
+
+    public void twenty(){
+        if (total > 20)
+            throw new IllegalArgumentException(Errors.TWENTY.getMessage());
+    }
+    public void beverage(){
+        if (isOnlyBeverage)
+            throw new IllegalArgumentException(Errors.NOT_ONLY.getMessage());
+    }
 }

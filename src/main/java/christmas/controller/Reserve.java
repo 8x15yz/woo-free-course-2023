@@ -8,7 +8,6 @@ import christmas.model.Menus;
 
 public class Reserve {
     public static int visit = 0;
-    Benefits[] benefitValues = Benefits.values();
     Menus[] menuValues = Menus.values();
     public void set(int day) {
         visit = day;
@@ -16,8 +15,6 @@ public class Reserve {
         weekday(type(day));
         weekend(type(day));
         star(day);
-
-//        for (Benefits value : benefitValues) value.Test();
     }
     public int type(int day) {
         return (day-1)%7;
@@ -35,14 +32,24 @@ public class Reserve {
         Benefits.STAR.check(type(day) == 2 || day == 25);
     }
 
-    public void set(HashMap menu) {
+    public void set(HashMap orders) {
+        System.out.println(orders+"!!!!!!!!!!!!!!!");
 
     }
-
     public List catalog() {
         List<String> catalog = new ArrayList<>();
         for (Menus value : menuValues)
             catalog.add(value.getName());
         return catalog;
     }
+    public HashMap getCatalog() {
+        HashMap<String, String> types = new HashMap<>();
+        for (Menus value : menuValues) {
+            String[] gettype = value.getNameType();
+            types.put(gettype[0], gettype[1]);
+        }
+        return types;
+    }
+
+
 }

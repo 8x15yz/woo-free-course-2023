@@ -1,5 +1,7 @@
 package christmas.model;
 
+import java.util.HashMap;
+
 public enum Menus {
     SOUP("양송이수프", 6000,"appetizer"),
     TAPAS("타파스", 5500,"appetizer"),
@@ -26,6 +28,9 @@ public enum Menus {
 
     public String getName() {
         return this.name;
+    }
+    public String[] getNameType() {
+        return new String[] {this.name, this.type};
     }
 
 }
