@@ -1,15 +1,20 @@
 package christmas;
+import java.util.List;
 
 import christmas.controller.Request;
-import christmas.controller.Schedule;
+import christmas.controller.Reserve;
 
 public class PromotionSystem {
+    Request request = new Request();
+    Reserve reserve = new Reserve();
+
     public void run() {
-        Request request = new Request();
-        Schedule schedule = new Schedule();
-
         request.hello();
-        schedule.set(request.day());
-
+        reserve.set(
+                request.day()
+        );
+        reserve.set(
+                request.order(reserve.catalog())
+        );
     }
 }

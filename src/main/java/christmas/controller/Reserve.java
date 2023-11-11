@@ -1,9 +1,15 @@
 package christmas.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import christmas.model.Benefits;
-public class Schedule {
+import christmas.model.Menus;
+
+public class Reserve {
     public static int visit = 0;
-    Benefits[] values = Benefits.values();
+    Benefits[] benefitValues = Benefits.values();
+    Menus[] menuValues = Menus.values();
     public void set(int day) {
         visit = day;
         dday(day);
@@ -11,7 +17,7 @@ public class Schedule {
         weekend(type(day));
         star(day);
 
-//        for (Benefits value : values) value.Test();
+//        for (Benefits value : benefitValues) value.Test();
     }
     public int type(int day) {
         return (day-1)%7;
@@ -29,4 +35,14 @@ public class Schedule {
         Benefits.STAR.check(type(day) == 2 || day == 25);
     }
 
+    public void set(HashMap menu) {
+
+    }
+
+    public List catalog() {
+        List<String> catalog = new ArrayList<>();
+        for (Menus value : menuValues)
+            catalog.add(value.getName());
+        return catalog;
+    }
 }
