@@ -11,9 +11,7 @@ public class Request {
     Input in = new Input();
     Validator validator = new Validator();
     Preprocess pre = new Preprocess();
-    public void hello() {
-        out.hello();
-    }
+
     public int day() {
         try {
             return validator.isDayValid(in.day());

@@ -9,7 +9,7 @@ import christmas.model.Orders;
 
 public class Reserve {
     public static int visit = 0;
-    Menus[] menuValues = Menus.values();
+    Menus[] values = Menus.values();
     private List<Orders> reserve = new ArrayList<>();
 
     public void set(int day) {
@@ -35,17 +35,18 @@ public class Reserve {
         Benefits.STAR.check(type(day) == 2 || day == 25);
     }
 
-    public void set(HashMap orders) {
+    public List set(HashMap orders) {
         orders.forEach((name, price) -> {
             reserve.add(new Orders(String.valueOf(name), Integer.parseInt(String.valueOf(price))));
         });
 //        for(Orders res: reserve) {
 //            System.out.println(res.getName()+"+"+res.getCnt());
 //        }
+        return reserve;
     }
     public HashMap getCatalog() {
         HashMap<String, String> types = new HashMap<>();
-        for (Menus value : menuValues) {
+        for (Menus value : values) {
             String[] gettype = value.getNameType();
             types.put(gettype[0], gettype[1]);
         }

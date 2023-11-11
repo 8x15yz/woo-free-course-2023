@@ -32,5 +32,10 @@ public enum Menus {
     public String[] getNameType() {
         return new String[] {this.name, this.type};
     }
+    public int getPrice(String menu) {
+        if(menu.equals(this.name))
+            return this.price;
+        return 0;
+    }
 
 }
