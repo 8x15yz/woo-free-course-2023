@@ -10,6 +10,7 @@ public class Output {
     private final String RESULT_MENU = "주문 메뉴";
     private final String RESULT_TOTAL = "할인 전 총주문 금액";
     private final String RESULT_GIFT = "증정 메뉴";
+    private final String GIFT = "샴페인 1개";
     private final String RESULT_BENEFIT = "혜택 내역";
     private final String RESULT_BENEFIT_TOTAL = "총혜택 금액";
     private final String RESULT_SALE = "할인 후 예상 결제 금액";
@@ -17,6 +18,10 @@ public class Output {
     private final String CNT = "개";
     private final String WON = "원";
     private final String VOID = " ";
+    private final String COLON = ": ";
+    private final String NONE = "없음";
+
+    
 
     public void jump() {
         System.out.println();
@@ -48,9 +53,18 @@ public class Output {
         jump();
         System.out.println(LEFT+RESULT_GIFT+RIGHT);
     }
+    public void giftTrue() {
+        System.out.println(GIFT);
+    }
+    public void none() {
+        System.out.println(NONE);
+    }
     public void benefit() {
         jump();
         System.out.println(LEFT+RESULT_BENEFIT+RIGHT);
+    }
+    public void benefit(String name) {
+        System.out.print(name+COLON);
     }
     public void totalBenefit() {
         jump();

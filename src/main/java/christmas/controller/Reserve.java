@@ -12,12 +12,13 @@ public class Reserve {
     Menus[] values = Menus.values();
     private List<Orders> reserve = new ArrayList<>();
 
-    public void set(int day) {
+    public int set(int day) {
         visit = day;
         dday(day);
         weekday(type(day));
         weekend(type(day));
         star(day);
+        return day;
     }
     public int type(int day) {
         return (day-1)%7;
@@ -39,9 +40,6 @@ public class Reserve {
         orders.forEach((name, price) -> {
             reserve.add(new Orders(String.valueOf(name), Integer.parseInt(String.valueOf(price))));
         });
-//        for(Orders res: reserve) {
-//            System.out.println(res.getName()+"+"+res.getCnt());
-//        }
         return reserve;
     }
     public HashMap getCatalog() {

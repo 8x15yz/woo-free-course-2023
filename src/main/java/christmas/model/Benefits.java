@@ -8,7 +8,7 @@ public enum Benefits {
     GIFT("증정 이벤트");
 
     private final String name;
-    private int price;
+    private long price;
     private Boolean benefit;
 
     Benefits(String name) {
@@ -17,15 +17,22 @@ public enum Benefits {
     public void check(Boolean check) {
         this.benefit = check;
     }
+    public Boolean isTrue() {
+        return this.benefit;
+    }
     public String getName() {
         return this.name;
     }
-    public Boolean getBenefit() {
-        return this.benefit;
+    public void setBenefit() {
+        this.price = -25000;
     }
-    public void setBenefit(int price) {
-        this.price = price;
+    public void setBenefit(long sale) {
+        this.price = sale;
     }
+    public long getPrice() {
+        return this.price;
+    }
+
     public void Test() {
         System.out.println(this.name+""+this.benefit+"!!!!!!!!");
     }

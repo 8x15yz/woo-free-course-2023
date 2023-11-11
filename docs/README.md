@@ -85,29 +85,32 @@
 	- [x] true면 "샴페인 1개" 출력
 	- [x] false면 "없음" 출력
 
-### ⬜ 4. 사용자가 받을 혜택 금액을 각각 계산
+### ✅ 4. 사용자가 받을 혜택 금액을 각각 계산
 
-- [ ] 주문 정보를 Orders에서 가져오기
-- [ ] 메뉴판 정보를 Menus에서 가져오기
-- [ ] 혜택 정보를 Benefit에서 가져오기
-- [ ] Benefit을 순회하면서 true인 혜택에 대해서 
-	- [ ] end 
-		- [ ] Orders 순회하면서
-			- [ ] Menu랑 비교해서 
-			- [ ] type이 main인 ruddnaks cnt x 2023 누적
-			- [ ] Benefit에 저장
-	- [ ] day
-		- [ ] Orders 순회하면서
-			- [ ] Menu랑 비교해서 
-			- [ ] type이 dessert인 ruddnaks cnt x 2023 누적
-			- [ ] Benefit에 저장 
-	- [ ] star
-		- [ ] return 1000
-		- [ ] Benefit에 저장
-	- [ ] dday
-		- [ ] return 1000(day-1)x100
-		- [ ] Benefit에 저장
-	- [ ] 혜택이 전부 false - 없음 출력 (누적으로 기록하기)
+- [x] 주문 정보를 Orders에서 가져오기
+- [x] 메뉴판 정보를 Menus에서 가져오기
+- [x] 혜택 정보를 Benefit에서 가져오기
+- [x] Benefit을 순회하면서 true인 혜택에 대해서 
+	- [x] end 
+		- [x] Orders 순회하면서
+			- [x] Menu랑 비교해서 
+			- [x] type이 main인 ruddnaks cnt x 2023 누적
+			- [x] Benefit에 저장
+	- [x] day
+		- [x] Orders 순회하면서
+			- [x] Menu랑 비교해서 
+			- [x] type이 dessert인 ruddnaks cnt x 2023 누적
+			- [x] Benefit에 저장 
+	- [x] star
+		- [x] return -1000
+		- [x] Benefit에 저장
+	- [x] dday
+		- [x] return -1x(1000+(day-1)x100)
+		- [x] Benefit에 저장
+	- [x] gift
+		- [x] return -25000
+	- [x] 혜택이 전부 false - 없음 출력 (누적으로 기록하기)
+	- [ ] 조건이 약간 이상함 이거 고쳐야돼
 
 ### ⬜ 5. 사용자가 받을 총 혜택 금액을 계산
 
