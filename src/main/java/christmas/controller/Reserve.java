@@ -5,10 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 import christmas.model.Benefits;
 import christmas.model.Menus;
+import christmas.model.Orders;
 
 public class Reserve {
     public static int visit = 0;
     Menus[] menuValues = Menus.values();
+    private List<Orders> reserve = new ArrayList<>();
+
     public void set(int day) {
         visit = day;
         dday(day);
@@ -33,14 +36,12 @@ public class Reserve {
     }
 
     public void set(HashMap orders) {
-        System.out.println(orders+"!!!!!!!!!!!!!!!");
-
-    }
-    public List catalog() {
-        List<String> catalog = new ArrayList<>();
-        for (Menus value : menuValues)
-            catalog.add(value.getName());
-        return catalog;
+        orders.forEach((name, price) -> {
+            reserve.add(new Orders(String.valueOf(name), Integer.parseInt(String.valueOf(price))));
+        });
+//        for(Orders res: reserve) {
+//            System.out.println(res.getName()+"+"+res.getCnt());
+//        }
     }
     public HashMap getCatalog() {
         HashMap<String, String> types = new HashMap<>();

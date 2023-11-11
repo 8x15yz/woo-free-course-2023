@@ -50,15 +50,15 @@ public class Validator {
     }
 
     public void isOrderValid(HashMap catalog, List<String> order) {
-        catalog.forEach((key, value) -> {
+        catalog.forEach((name, type) -> {
             for(String menu : order) {
-                match(key, value, menu);
+                match(name, type, menu);
             }
         });
         beverage();
     }
-    public void match(Object key, Object value, String menu) {
-        if (key.equals(menu) && !value.equals("beverage")) {
+    public void match(Object name, Object type, String menu) {
+        if (name.equals(menu) && !type.equals("beverage")) {
             isOnlyBeverage = false;
         }
     }
