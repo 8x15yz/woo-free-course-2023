@@ -45,6 +45,11 @@ public class PromotionSystem {
             out.totalBenefit();
             calculate.totalBenefit();
             //기능 6.
+            out.sale();
+            calculate.sale();
+            // 기능 7.
+//            out.badge();
+//            calculate.badge();
         } catch (Exception e) {
 
         }

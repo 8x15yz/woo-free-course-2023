@@ -11,7 +11,7 @@ import java.util.List;
 public class Calculate {
 
     private final int start = 10000;
-    long totalBenefit = 0;
+
     Menus[] menus = Menus.values();
     Benefits[] benefits = Benefits.values();
     Output out = new Output();
@@ -45,11 +45,11 @@ public class Calculate {
             }
         }
         Boolean all = true;
+
         for (Benefits benefit: benefits) {
             if (benefit.isTrue()) {
                 out.benefit(benefit.getName());
                 out.won(benefit.getPrice());
-                totalBenefit += benefit.getPrice();
                 all = false;
             }
         }
@@ -86,7 +86,20 @@ public class Calculate {
     }
 
     public void totalBenefit() {
-        out.won(totalBenefit);
+        long totalBenefit = 0;
+        for (Benefits benefit: benefits) {
+            if(benefit.isTrue() && !benefit.name().equals("GIFT")) {
+                totalBenefit += benefit.getPrice();
+            }
+        }
+        out.won(Prices.BENEFIT.getPrice());
+        Prices.BENEFIT.setPrice(totalBenefit);
+    }
+    public void sale() {
+        Prices.SALE.setPrice(
+                Prices.BENEFIT.getPrice()+Prices.TOTAL.getPrice()
+        );
+        out.won(Prices.SALE.getPrice());
     }
 
 }
