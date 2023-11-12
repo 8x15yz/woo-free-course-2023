@@ -11,6 +11,7 @@ import java.util.List;
 public class Calculate {
 
     private final int start = 10000;
+    long totalBenefit = 0;
     Menus[] menus = Menus.values();
     Benefits[] benefits = Benefits.values();
     Output out = new Output();
@@ -48,6 +49,7 @@ public class Calculate {
             if (benefit.isTrue()) {
                 out.benefit(benefit.getName());
                 out.won(benefit.getPrice());
+                totalBenefit += benefit.getPrice();
                 all = false;
             }
         }
@@ -81,6 +83,10 @@ public class Calculate {
     }
     public long gift() {
         return -25000;
+    }
+
+    public void totalBenefit() {
+        out.won(totalBenefit);
     }
 
 }

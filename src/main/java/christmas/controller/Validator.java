@@ -38,7 +38,6 @@ public class Validator {
             twenty();
             return format;
         }
-        System.out.println(isOnlyBeverage+"???????");
         throw new IllegalArgumentException(Errors.MENU.getMessage());
     }
     public void isNameValid(String name) {
