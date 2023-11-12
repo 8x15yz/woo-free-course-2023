@@ -4,6 +4,7 @@ import christmas.model.Orders;
 import christmas.model.Menus;
 import christmas.model.Benefits;
 import christmas.model.Prices;
+import christmas.model.Badges;
 import christmas.view.Output;
 import java.util.List;
 
@@ -14,6 +15,7 @@ public class Calculate {
 
     Menus[] menus = Menus.values();
     Benefits[] benefits = Benefits.values();
+    Badges[] badges = Badges.values();
     Output out = new Output();
     public long total(List<Orders> reserve) {
         long total = 0;
@@ -100,6 +102,14 @@ public class Calculate {
                 Prices.BENEFIT.getPrice()+Prices.TOTAL.getPrice()
         );
         out.won(Prices.SALE.getPrice());
+    }
+    public void badge() {
+        for (Badges badge : badges) {
+            if (Prices.BENEFIT.getPrice() <= badge.getBoundary()) {
+                out.badge(badge.getName());
+                break;
+            }
+        }
     }
 
 }

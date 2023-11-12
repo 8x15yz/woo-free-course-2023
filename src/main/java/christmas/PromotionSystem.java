@@ -48,8 +48,8 @@ public class PromotionSystem {
             out.sale();
             calculate.sale();
             // 기능 7.
-//            out.badge();
-//            calculate.badge();
+            out.badge();
+            calculate.badge();
         } catch (Exception e) {
 
         }

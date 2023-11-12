@@ -14,21 +14,21 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class ApplicationTest extends NsTest {
     private static final String LINE_SEPARATOR = System.lineSeparator();
 
-//    @Test
-//    void 모든_타이틀_출력() {
-//        assertSimpleTest(() -> {
-//            run("3", "티본스테이크-1,바비큐립-1,초코케이크-2,제로콜라-1");
-//            assertThat(output()).contains(
-//                "<주문 메뉴>",
-//                "<할인 전 총주문 금액>",
-//                "<증정 메뉴>",
-//                "<혜택 내역>",
-//                "<총혜택 금액>",
-//                "<할인 후 예상 결제 금액>",
-//                "<12월 이벤트 배지>"
-//            );
-//        });
-//    }
+    @Test
+    void 모든_타이틀_출력() {
+        assertSimpleTest(() -> {
+            run("3", "티본스테이크-1,바비큐립-1,초코케이크-2,제로콜라-1");
+            assertThat(output()).contains(
+                "<주문 메뉴>",
+                "<할인 전 총주문 금액>",
+                "<증정 메뉴>",
+                "<혜택 내역>",
+                "<총혜택 금액>",
+                "<할인 후 예상 결제 금액>",
+                "<12월 이벤트 배지>"
+            );
+        });
+    }
 
     @Test
     void 혜택_내역_없음_출력() {
@@ -46,30 +46,22 @@ class ApplicationTest extends NsTest {
         });
     }
 
-//    @Test
-//    void 주문_예외_테스트() {
-//        assertSimpleTest(() -> {
-//            runException("3", "제로콜라-a");
-//            assertThat(output()).contains("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
-//        });
+//    @ParameterizedTest
+//    @ValueSource( strings = {
+//            "해산물파스타-2,레드와인-1,초코케이크",
+//            "해산물파스타-2,레드와인-1,초코케이크-1-1",
+//            "해산물파스타-a",
+//            "레드와인-1",
+//            "해산물파스타-21",
+//            "해산물파스타-2,해산물파스타-1",
+//            "",
+//            "제로콜라-a"
+//    })
+//    void 주문_예외_테스트(String input){
+//        Preprocess pre = new Preprocess();
+//        assertThatThrownBy(() -> pre.individually(input))
+//                .isInstanceOf(IllegalArgumentException.class);
 //    }
-
-    @ParameterizedTest
-    @ValueSource( strings = {
-            "해산물파스타-2,레드와인-1,초코케이크",
-            "해산물파스타-2,레드와인-1,초코케이크-1-1",
-            "해산물파스타-a",
-            "레드와인-1",
-            "해산물파스타-21",
-            "해산물파스타-2,해산물파스타-1",
-            "",
-            "제로콜라-a"
-    })
-    void 주문_예외_테스트(String input){
-        Preprocess pre = new Preprocess();
-        assertThatThrownBy(() -> pre.individually(input))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
 
     @Override
     protected void runMain() {

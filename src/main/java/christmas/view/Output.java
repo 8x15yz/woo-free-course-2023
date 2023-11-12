@@ -78,5 +78,8 @@ public class Output {
         jump();
         System.out.println(LEFT+RESULT_BADGE+RIGHT);
     }
+    public void badge(String badge) {
+        System.out.println(badge);
+    }
 }
 
