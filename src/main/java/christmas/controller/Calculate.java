@@ -86,7 +86,6 @@ public class Calculate {
     public long gift() {
         return -25000;
     }
-
     public void totalBenefit() {
         long totalBenefit = 0;
         for (Benefits benefit: benefits) {

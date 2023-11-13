@@ -1,32 +1,26 @@
 package christmas.controller;
-import christmas.view.Output;
 import christmas.view.Input;
-import christmas.controller.Preprocess;
-
-import java.util.HashMap;
-import java.util.List;
+import christmas.validator.Day;
 
 public class Request {
-    Output out = new Output();
     Input in = new Input();
-    Validator validator = new Validator();
-    Preprocess pre = new Preprocess();
 
     public int day() {
+        Day validator = new Day();
         try {
-            return validator.isDayValid(in.day());
+            return validator.day(
+                    in.day()
+            );
         } catch (Exception e) {
-            out.error(e.getMessage());
+            throw new IllegalArgumentException(e.getMessage());
         }
-        return 0;
     }
 
     public String order() {
         try {
             return in.menu();
         } catch (Exception e) {
-            out.error(e.getMessage());
+            throw new IllegalArgumentException(e.getMessage());
         }
-        return "0";
     }
 }

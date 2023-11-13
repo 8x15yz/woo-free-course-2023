@@ -23,35 +23,36 @@ public class Output {
 
     
 
-    public void jump() {
+    public void jump(String sentence) {
         System.out.println();
+        System.out.println(LEFT+sentence+RIGHT);
+    }
+    public void menu() {
+        jump(RESULT_MENU);
+    }
+    public void total() {
+        jump(RESULT_TOTAL);
+    }
+    public void gift() {
+        jump(RESULT_GIFT);
+    }
+    public void benefit() {
+        jump(RESULT_BENEFIT);
+    }
+    public void totalBenefit() {
+        jump(RESULT_BENEFIT_TOTAL);
+    }
+    public void sale() {
+        jump(RESULT_SALE);
+    }
+    public void badge() {
+        jump(RESULT_BADGE);
     }
     public void hello() {
         System.out.println(HELLO);
     }
-    public void error(String sentence) {
-        System.out.println(sentence);
-    }
     public void result() {
         System.out.println(RESULT);
-    }
-    public void menu() {
-        jump();
-        System.out.println(LEFT+RESULT_MENU+RIGHT);
-    }
-    public void eachMenu(String menu, int cnt) {
-        System.out.println(menu+VOID+cnt+CNT);
-    }
-    public void total() {
-        jump();
-        System.out.println(LEFT+RESULT_TOTAL+RIGHT);
-    }
-    public void won(long price) {
-        System.out.println(numberFormat.format(price)+WON);
-    }
-    public void gift() {
-        jump();
-        System.out.println(LEFT+RESULT_GIFT+RIGHT);
     }
     public void giftTrue() {
         System.out.println(GIFT);
@@ -59,27 +60,20 @@ public class Output {
     public void none() {
         System.out.println(NONE);
     }
-    public void benefit() {
-        jump();
-        System.out.println(LEFT+RESULT_BENEFIT+RIGHT);
+    public void error(String sentence) {
+        System.out.println(sentence);
     }
     public void benefit(String name) {
         System.out.print(name+COLON);
     }
-    public void totalBenefit() {
-        jump();
-        System.out.println(LEFT+RESULT_BENEFIT_TOTAL+RIGHT);
-    }
-    public void sale() {
-        jump();
-        System.out.println(LEFT+RESULT_SALE+RIGHT);
-    }
-    public void badge() {
-        jump();
-        System.out.println(LEFT+RESULT_BADGE+RIGHT);
-    }
     public void badge(String badge) {
         System.out.println(badge);
+    }
+    public void eachMenu(String menu, int cnt) {
+        System.out.println(menu+VOID+cnt+CNT);
+    }
+    public void won(long price) {
+        System.out.println(numberFormat.format(price)+WON);
     }
 }
 

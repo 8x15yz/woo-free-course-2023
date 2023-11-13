@@ -1,4 +1,4 @@
-package christmas.model;
+package christmas.validator;
 
 public enum Errors {
     COMMON("[ERROR] "),

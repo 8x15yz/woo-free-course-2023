@@ -1,38 +1,23 @@
-package christmas.controller;
-
-import christmas.model.Errors;
+package christmas.validator;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Validator {
-    private static final String IS_ONLY_NUMBER = "[0-9]+";
-    private static List<String> duplicate = new ArrayList<>();
+public class Menu {
     int total = 0;
     Boolean isOnlyBeverage = true;
+    Common common = new Common();
 
-    public int isDayValid(String day) {
-        if (isInteger(day) && isRangeValid(day))
-            return Integer.parseInt(day);
-        throw new IllegalArgumentException(Errors.DAY.getMessage());
-    }
-    public boolean isInteger(String number) {
-        return number.matches(IS_ONLY_NUMBER);
-    }
-    public boolean isRangeValid(String number) {
-        int parsed = Integer.parseInt(number);
-        return 1 <= parsed && parsed <= 31;
-    }
-    public String[] isFormatValid(String[] format) {
+    public String[] format(String[] format) {
         if (format.length != 2)
             throw new IllegalArgumentException(Errors.MENU.getMessage());
         return format;
     }
-    public String[] isMenuValid(String[] format, List<String> catalog) {
-        isNameValid(format[0]);
-        if(containMenu(format[0], catalog) && isInteger(format[1])) {
+    public String[] menu(String[] format, List<String> catalog, List<String> duplicate) {
+        name(format[0], duplicate);
+        if(matching(format[0], catalog) && common.isInteger(format[1])) {
             duplicate.add(format[0]);
             total += Integer.parseInt(format[1]);
             twenty();
@@ -40,15 +25,16 @@ public class Validator {
         }
         throw new IllegalArgumentException(Errors.MENU.getMessage());
     }
-    public void isNameValid(String name) {
-        if (duplicate.contains(name))
+    public void name(String name,List<String> duplicate) {
+        if (duplicate.contains(name)) {
             throw new IllegalArgumentException(Errors.MENU.getMessage());
+        }
+
     }
-    public Boolean containMenu(String name, List<String> catalog) {
+    public Boolean matching(String name, List<String> catalog) {
         return catalog.contains(name);
     }
-
-    public void isOrderValid(HashMap catalog, List<String> order) {
+    public void order(HashMap catalog, List<String> order) {
         catalog.forEach((name, type) -> {
             for(String menu : order) {
                 match(name, type, menu);
@@ -61,7 +47,6 @@ public class Validator {
             isOnlyBeverage = false;
         }
     }
-
     public void twenty(){
         if (total > 20)
             throw new IllegalArgumentException(Errors.TWENTY.getMessage());

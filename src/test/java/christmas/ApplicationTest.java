@@ -46,22 +46,22 @@ class ApplicationTest extends NsTest {
         });
     }
 
-//    @ParameterizedTest
-//    @ValueSource( strings = {
-//            "해산물파스타-2,레드와인-1,초코케이크",
-//            "해산물파스타-2,레드와인-1,초코케이크-1-1",
-//            "해산물파스타-a",
-//            "레드와인-1",
-//            "해산물파스타-21",
-//            "해산물파스타-2,해산물파스타-1",
-//            "",
-//            "제로콜라-a"
-//    })
-//    void 주문_예외_테스트(String input){
-//        Preprocess pre = new Preprocess();
-//        assertThatThrownBy(() -> pre.individually(input))
-//                .isInstanceOf(IllegalArgumentException.class);
-//    }
+    @ParameterizedTest
+    @ValueSource( strings = {
+            "해산물파스타-2,레드와인-1,초코케이크",
+            "해산물파스타-2,레드와인-1,초코케이크-1-1",
+            "해산물파스타-a",
+            "레드와인-1",
+            "해산물파스타-21",
+            "해산물파스타-2,해산물파스타-1",
+            "",
+            "제로콜라-a"
+    })
+    void 주문_예외_테스트(String input){
+        Preprocess pre = new Preprocess();
+        assertThatThrownBy(() -> pre.part(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 
     @Override
     protected void runMain() {
