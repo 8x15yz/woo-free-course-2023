@@ -32,9 +32,4 @@ public enum Benefits {
     public long getPrice() {
         return this.price;
     }
-
-    public void Test() {
-        System.out.println(this.name+""+this.benefit+"!!!!!!!!");
-    }
-
 }

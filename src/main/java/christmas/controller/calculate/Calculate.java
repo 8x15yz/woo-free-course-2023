@@ -1,4 +1,4 @@
-package christmas.controller;
+package christmas.controller.calculate;
 
 import christmas.model.Orders;
 import christmas.model.Menus;
@@ -68,7 +68,7 @@ public class Calculate {
     public long week(List<Orders> orders, String type) {
         long sale = 0;
         for (Menus value: menus) {
-            String[] catalog = value.getNameType();
+            String[] catalog = value.getCatalog();
             for(Orders order: orders) {
                 if (order.getName().equals(catalog[0]) && catalog[1].equals(type)) {
                     sale -= order.getCnt()*2023;

@@ -1,12 +1,10 @@
 package christmas.validator;
 
 public class Day {
+    RaiseExceptions Exceptions = new RaiseExceptions();
     Common common = new Common();
     public int day(String day) {
-        if (!(common.isInteger(day) && range(day)))
-            throw new IllegalArgumentException(
-                    Errors.DAY.getMessage()
-            );
+        Exceptions.day(!(common.isInteger(day) && range(day)));
         return Integer.parseInt(day);
     }
     public boolean range(String number) {

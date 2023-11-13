@@ -9,7 +9,6 @@ import christmas.model.Orders;
 
 public class Reserve {
     public static int visit = 0;
-    Menus[] values = Menus.values();
     private List<Orders> reserve = new ArrayList<>();
 
     public int set(int day) {
@@ -42,14 +41,4 @@ public class Reserve {
         });
         return reserve;
     }
-    public HashMap getCatalog() {
-        HashMap<String, String> types = new HashMap<>();
-        for (Menus value : values) {
-            String[] gettype = value.getNameType();
-            types.put(gettype[0], gettype[1]);
-        }
-        return types;
-    }
-
-
 }

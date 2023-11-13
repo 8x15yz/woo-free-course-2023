@@ -2,8 +2,8 @@ package christmas;
 
 import christmas.controller.Request;
 import christmas.controller.Reserve;
-import christmas.controller.Preprocess;
-import christmas.controller.Calculate;
+import christmas.controller.preprocess.Preprocess;
+import christmas.controller.calculate.Calculate;
 import christmas.view.Output;
 
 import java.util.List;
