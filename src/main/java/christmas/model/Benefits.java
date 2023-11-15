@@ -23,9 +23,6 @@ public enum Benefits {
     public String getName() {
         return this.name;
     }
-    public void setBenefit() {
-        this.price = -25000;
-    }
     public void setBenefit(long sale) {
         this.price = sale;
     }

@@ -13,27 +13,29 @@ public class Preprocess {
     OrderCount count = new OrderCount();
     Format format = new Format();
     OnlyBeverage beverage = new OnlyBeverage();
+    api api = new api();
 
     public HashMap part(String input) {
-        HashMap<String, Integer> requests = clean(input);
-        beverage.validate(new ArrayList<>(requests.keySet()));
-        count.validate(new ArrayList<>(requests.values()));
-        return requests;
+        HashMap<String, Integer> response = clean(input);
+        beverage.validate(new ArrayList<>(response.keySet()));
+        count.validate(new ArrayList<>(response.values()));
+        return response;
     }
     public HashMap clean(String input) {
-        List<String> alreadyOrderd= new ArrayList<>();
+        List<String> duplicate= new ArrayList<>();
         HashMap<String, Integer> requests = new HashMap<>();
+        List<String> catalog = api.getMenus();
 
         for (String menu : input.split(",")) {
-            String[] cleanData = divide(menu, alreadyOrderd);
-            requests.put( cleanData[0], Integer.valueOf(cleanData[1]));
+            String[] cleanData = divide(menu, duplicate, catalog);
+            requests.put(cleanData[0], Integer.valueOf(cleanData[1]));
         }
         return requests;
     }
-    public String[] divide(String order, List<String> duplicate) {
+    public String[] divide(String order, List duplicate, List catalog) {
         String[] divided = format.validate(String.valueOf(order).split("-"));
-        menu.validate(divided[0], duplicate);
-        count.isInt(divided[1]);
+        menu.validate(divided[0], duplicate, catalog);
+        count.isInteger(divided[1]);
         return divided;
      }
 }

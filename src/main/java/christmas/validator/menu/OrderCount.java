@@ -8,7 +8,7 @@ public class OrderCount {
 
     Common common = new Common();
     RaiseExceptions Exception = new RaiseExceptions();
-    public void isInt(String num) {
+    public void isInteger(String num) {
         Exception.number(!(common.isInteger(num)));
     }
     public void validate(ArrayList<Integer> order){

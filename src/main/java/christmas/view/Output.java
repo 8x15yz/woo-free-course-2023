@@ -4,7 +4,7 @@ import java.text.NumberFormat;
 public class Output {
     NumberFormat numberFormat = NumberFormat.getInstance();
     private final String HELLO = "안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.";
-    private final String RESULT = "12월 26일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!";
+    private final String RESULT = "12월 %d일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!";
     private final String LEFT = "<";
     private final String RIGHT = ">";
     private final String RESULT_MENU = "주문 메뉴";
@@ -51,8 +51,8 @@ public class Output {
     public void hello() {
         System.out.println(HELLO);
     }
-    public void result() {
-        System.out.println(RESULT);
+    public void result(int day) {
+        System.out.println(String.format(RESULT, day));
     }
     public void giftTrue() {
         System.out.println(GIFT);
