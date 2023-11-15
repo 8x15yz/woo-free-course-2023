@@ -16,10 +16,6 @@ public class Reserve {
             weekend(type(day), isTarget(price));
             star(day, isTarget(price));
             gift(price);
-            //?????????
-            for (Benefits value: Benefits.values()) {
-                System.out.println(value+" "+value.isTrue());
-            }
         return day;
     }
     public Boolean isTarget(long price) {

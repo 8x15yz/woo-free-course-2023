@@ -5,15 +5,15 @@ import java.util.List;
 import java.util.ArrayList;
 
 import christmas.validator.menu.OnlyBeverage;
-import christmas.validator.menu.OrderMenu;
-import christmas.validator.menu.OrderCount;
+import christmas.validator.menu.MenuValidator;
+import christmas.validator.menu.CountValidator;
 import christmas.validator.menu.Format;
 public class Preprocess {
-    OrderMenu menu = new OrderMenu();
-    OrderCount count = new OrderCount();
+    MenuValidator menu = new MenuValidator();
+    CountValidator count = new CountValidator();
     Format format = new Format();
     OnlyBeverage beverage = new OnlyBeverage();
-    api api = new api();
+    API api = new API();
 
     public HashMap part(String input) {
         HashMap<String, Integer> response = clean(input);

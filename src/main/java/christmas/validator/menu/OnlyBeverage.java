@@ -1,5 +1,5 @@
 package christmas.validator.menu;
-import christmas.controller.preprocess.api;
+import christmas.controller.preprocess.API;
 
 import christmas.validator.RaiseExceptions;
 
@@ -8,7 +8,7 @@ import java.util.List;
 
 public class OnlyBeverage {
     RaiseExceptions Exceptions = new RaiseExceptions();
-    api api = new api();
+    API api = new API();
     Boolean isOnlyBeverage = true;
     HashMap catalog =  api.getCatalog();
     public void validate(List<String> requests) {

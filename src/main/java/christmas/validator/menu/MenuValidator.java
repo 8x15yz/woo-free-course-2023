@@ -1,11 +1,10 @@
 package christmas.validator.menu;
-import christmas.controller.preprocess.api;
 
 import christmas.validator.RaiseExceptions;
 
 import java.util.List;
 
-public class OrderMenu {
+public class MenuValidator {
     RaiseExceptions Exceptions = new RaiseExceptions();
 
     public void validate(String name, List duplicate, List catalog) {

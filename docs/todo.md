@@ -1,3 +1,4 @@
+# Todo
 그날 할 작업들을 미리 적어놓고 완료할 때마다 체크하는 목적으로 생성했습니다. todo 목록은 일 단위로 생성됩니다.
 ### 11.09 목
 - [x] 명세사항 읽으며 기능 분석하기
@@ -43,3 +44,27 @@
 	- [x] 2번 기능 검증로직
 	- [ ] 4번기능 조건 이상해서 수정 필요함
 	- [ ] `n일에 받을 혜택 ~ ` 부분 고쳐야됨
+
+### 11.15 수 : 여러가지 리팩토링 & 수정
+**1. validator > menu > OrderCount**
+- [x]  [`isInt()` : 이름 isInt 축약 풀기 => isInteger로 #2](https://github.com/8x15yz/java-christmas-6-8x15yz/issues/2)
+
+**2. validator > menu > OrderMenu**
+- [x]  api 불러오는 거 for문 바깥으로 보내서 카탈로그 하나만 불러오도록 함
+
+**3. Preprocess 클래스**
+- [x]  `part()` : 변수명 requests => response로 이름 바꾸기
+- [x]  duplicate print 찍어서 제대로 돌아가고있는건지 두눈으로 확인하기
+
+**4. validator 패키지 리뷰**
+- [x]  OrderMenu / OrderCount 이름뜻 유추하기 힘듦 => MenuValidate / CountValidate 로 변경
+
+**5. PromotionSystem 클래스에서**
+- [x]  inputDay() 에서는 그냥 값만 입력받고 나옴
+- [x]  그다음 total()에서 price 나왔을 때 gift() 돌리기 이전에 Reserve.set()을 가져와서 끼우기
+- [x]  Reserve.set() 에서 인자를 하나 더 받아 (price)
+- [x]  거기서 비교를 하고 만원 이하면 Enum 돌려서 다 false로 막기
+- [x]  그 이후에 gift 랑 benefit이랑 돌리기
+
+**6. 날짜 입력받는 부분에 추가할 기능**
+- [x]  12월 `n`일에 우테코 식당에서 받을 이벤트 혜택 미리 보기! 로 나오도록 해야됨

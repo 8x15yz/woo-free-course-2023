@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import christmas.validator.Common;
 import christmas.validator.RaiseExceptions;
 
-public class OrderCount {
+public class CountValidator {
 
     Common common = new Common();
     RaiseExceptions Exception = new RaiseExceptions();

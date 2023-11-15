@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class api {
+public class API {
     Menus[] values = Menus.values();
     public HashMap getCatalog() {
         HashMap<String, String> catalog = new HashMap<>();
